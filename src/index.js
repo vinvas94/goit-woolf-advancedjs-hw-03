@@ -18,7 +18,7 @@ function populateBreedOptions(data) {
 }
 
 function loadBreeds() {
-  refs.loader.classList.add('hide');
+  refs.loader.classList.remove('hide');
   refs.error.classList.add('hide');
   fetchBreeds()
     .then(({ data }) => {
