@@ -3,7 +3,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import SlimSelect from 'slim-select';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import 'slim-select/styles';
 
 const refs = {
   select: document.querySelector('.breed-select'),
