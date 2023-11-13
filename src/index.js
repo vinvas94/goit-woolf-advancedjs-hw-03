@@ -2,9 +2,6 @@ import { fetchBreeds, fetchCatByBreeds } from './cat-api';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-import SlimSelect from 'slim-select';
-// import 'slim-select/styles';
-
 const refs = {
   select: document.querySelector('.breed-select'),
   loader: document.querySelector('.loader'),
@@ -13,9 +10,10 @@ const refs = {
 };
 
 function populateBreedOptions(data) {
-  return data
+  const breedOptions = data
     .map(({ id, name }) => `<option value="${id}">${name}</option>`)
     .join('');
+  return `<option value="" disabled selected>Select a cat, please!</option>${breedOptions}`;
 }
 
 function loadBreeds() {
@@ -25,10 +23,6 @@ function loadBreeds() {
     .then(({ data }) => {
       const breedOptions = populateBreedOptions(data);
       refs.select.innerHTML = breedOptions;
-      // refs.select.innerHTML = populateBreedOptions(data);
-      // new SlimSelect({
-      //   select: refs.select,
-      // });
     })
     .catch(error => {
       iziToast.show({
