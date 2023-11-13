@@ -44,18 +44,57 @@
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
   }
 }
+body {
+  background-color: rgb(31, 125, 125);
+}
 
 .hide {
   display: none;
 }
 .breed-select {
-  margin-bottom: 20px;
-}
-
-.breed-select {
   height: 30px;
+  border-radius: 6px;
+  width: 100%;
 }
 
-body {
-  width: 1240px;
+.container {
+  max-width: 428px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+
+.cat-picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.cat-name {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1158px;
+  }
+}
+
+.cat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .cat-info {
+    flex-direction: row;
+  }
 }

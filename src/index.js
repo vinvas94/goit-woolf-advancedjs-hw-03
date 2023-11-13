@@ -53,13 +53,14 @@ function onChangeOption(event) {
     .then(({ data }) => {
       refs.list.innerHTML = '';
       refs.loader.classList.remove('hide');
-      let { name, description, temperament } = data[0].breeds[0];
+      let { name, description, temperament, origin } = data[0].breeds[0];
       let { url } = data[0];
       refs.list.innerHTML = catMarkup({
         name,
         description,
         temperament,
         url,
+        origin,
       });
     })
     .catch(error => {
@@ -76,12 +77,11 @@ function onChangeOption(event) {
     });
 }
 
-function catMarkup({ name, description, temperament, url }) {
-  return `
-    <img src="${url}" alt="${name}" style="width: 1240px" />
-    <div style="width: 1240px">
-    <h2>${name}</h2>
+function catMarkup({ id, name, description, temperament, url, origin }) {
+  return `<div class="cat-container"><img class="cat-picture" src="${url}" alt="${id}"></div >
+       <div class="cat-box">
+    <h2 class="cat-name"> ${name}</h2>
     <p>${description}</p>
-    <p><span>Temperament:</span> ${temperament}</p>
-    </div >`;
+    <p><span> <b>Temperament:</b> </span> ${temperament}</p>
+    <p><b>Origin:</b> ${origin}</p> </div >`;
 }
