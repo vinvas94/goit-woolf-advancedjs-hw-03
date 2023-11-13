@@ -3,7 +3,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import SlimSelect from 'slim-select';
-import 'slim-select/styles';
+// import 'slim-select/styles';
 
 const refs = {
   select: document.querySelector('.breed-select'),
@@ -23,10 +23,12 @@ function loadBreeds() {
   refs.error.classList.add('hide');
   fetchBreeds()
     .then(({ data }) => {
-      refs.select.innerHTML = populateBreedOptions(data);
-      new SlimSelect({
-        select: refs.select,
-      });
+      const breedOptions = populateBreedOptions(data);
+      refs.select.innerHTML = breedOptions;
+      // refs.select.innerHTML = populateBreedOptions(data);
+      // new SlimSelect({
+      //   select: refs.select,
+      // });
     })
     .catch(error => {
       iziToast.show({
