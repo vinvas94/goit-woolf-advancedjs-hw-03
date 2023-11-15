@@ -34,7 +34,7 @@ function loadBreeds() {
     })
     .finally(() => {
       refs.loader.classList.add('hide');
-      refs.select.classList.remove('hide');
+      refs.select.style.display = 'block';
     });
 }
 loadBreeds();
@@ -61,7 +61,7 @@ function onChangeOption(event) {
       refs.list.innerHTML = '';
       iziToast.show({
         title: 'Hey',
-        message: 'FAILED FETCH API!',
+        message: 'Oops! Something went wrong! Try reloading the page!',
         position: 'topRight',
         progressBarColor: 'red',
       });

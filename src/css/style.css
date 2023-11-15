@@ -55,6 +55,7 @@ body {
   height: 30px;
   border-radius: 6px;
   width: 100%;
+  display: none;
 }
 
 .container {
